@@ -65,7 +65,7 @@ function App() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <div>
+            <div style={{ display: "flex" }}>
               <select
                 value={selectedServive}
                 onChange={(e) => setSelectedService(e.target.value)}
@@ -80,7 +80,7 @@ function App() {
           <span className="statics">
             {resultItem.length
               ? `${resultItem.length} items found`
-              : "Please check your inputs, or No results found."}
+              : "Please select service before search"}
           </span>
         </form>
       </nav>

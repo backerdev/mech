@@ -16,7 +16,7 @@ nav {
   justify-content: center;
   align-items: center;
 
-  padding: 8px 16px;
+  /* padding: 8px 16px; */
   background-color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -31,10 +31,14 @@ section {
   margin: 10px 0;
   font-size: 14px;
 }
+form {
+  width: 90%;
+  margin: 0 auto;
+}
 .searchEngine {
   width: 100%;
   display: flex;
-  padding: 4px 8px;
+  padding: 4px;
   background-color: whitesmoke;
   /* border: 1px solid black; */
   border-radius: 15px;
@@ -48,6 +52,8 @@ input {
   margin-right: 4px;
   background-color: transparent;
   border: none;
+  width: 100%;
+  font-weight: bold;
 }
 select {
   padding: 3px 8px;
@@ -57,6 +63,10 @@ select {
   cursor: pointer;
 }
 button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   padding: 4px 8px;
   font-weight: bold;
   border-top-right-radius: 8px;
@@ -78,7 +88,7 @@ button {
   gap: 4px;
 
   justify-content: space-between;
-  min-width: 350px;
+  min-width: 250px;
   max-width: 550px;
   padding: 4px 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
