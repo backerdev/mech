@@ -13,6 +13,7 @@ function App() {
   function handleSearch(e) {
     let Service = [];
     e.preventDefault();
+    if (!search) return;
     if (selectedServive === "tmc_svc") {
       Service = tmcSvs;
     } else if (selectedServive === "tmc_gds") {
@@ -55,7 +56,7 @@ function App() {
     <div className="app">
       <nav>
         <form onSubmit={handleSearch}>
-          <div>
+          <div className="searchEngine">
             <label htmlFor="search" style={{ display: "none" }}>
               search
             </label>
@@ -64,16 +65,23 @@ function App() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <select
-              value={selectedServive}
-              onChange={(e) => setSelectedService(e.target.value)}
-            >
-              <option value="bearing">Bearings</option>
-              <option value="tmc_svc">TMC-Service</option>
-              <option value="tmc_gds">TMC-Goods</option>
-            </select>
-            <button type="submit">Search</button>
+            <div>
+              <select
+                value={selectedServive}
+                onChange={(e) => setSelectedService(e.target.value)}
+              >
+                <option value="bearing">Bearings</option>
+                <option value="tmc_svc">TMC-Service</option>
+                <option value="tmc_gds">TMC-Goods</option>
+              </select>
+              <button type="submit">Search</button>
+            </div>
           </div>
+          <span className="statics">
+            {resultItem.length
+              ? `${resultItem.length} items found`
+              : "Please check your inputs, or No results found."}
+          </span>
         </form>
       </nav>
 
