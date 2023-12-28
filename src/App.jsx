@@ -14,7 +14,12 @@ function App() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    if (!search) return;
+    if (!search) {
+      setBearings([]);
+      setServices([]);
+      setGoods([]);
+      return;
+    }
     function handleSearch() {
       // let Service = bearings || tmcSvs || tmcGoods;
 
@@ -177,7 +182,10 @@ function App() {
       <section>
         {bearings.length ? (
           <>
-            <h2>Bearings</h2>
+            <h2>
+              Bearings{" "}
+              <span className="statics">{bearings.length} search found</span>
+            </h2>
             {bearings.map((item, i) => (
               <div key={i} className="singleCart">
                 <span className="headings">{item.item}</span>
@@ -192,7 +200,10 @@ function App() {
         )}
         {services.length ? (
           <>
-            <h2>Tmc-Services</h2>
+            <h2>
+              Tmc-Services{" "}
+              <span className="statics">{services.length} search found</span>
+            </h2>
             {services.map((item, i) => (
               <div key={i} className="singleCart">
                 <span className="headings">{item.item}</span>
@@ -207,7 +218,10 @@ function App() {
         )}
         {goods.length ? (
           <>
-            <h2>Tmc-Goods</h2>
+            <h2>
+              Tmc-Goods{" "}
+              <span className="statics">{goods.length} search found</span>
+            </h2>
             {goods.map((item, i) => (
               <div key={i} className="singleCart">
                 <span className="headings">{item.item}</span>
