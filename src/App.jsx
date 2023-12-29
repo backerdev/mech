@@ -9,7 +9,7 @@ function App() {
   const [bearings, setBearings] = useState([]);
   const [services, setServices] = useState([]);
   const [goods, setGoods] = useState([]);
-  // const [resultItems, setResultItems] = useState([]);
+  const [loading, setLoading] = useState(true);
   // const [selectedServive, setSelectedService] = useState("bearing");
   const [search, setSearch] = useState("");
 
@@ -21,17 +21,7 @@ function App() {
       return;
     }
     function handleSearch() {
-      // let Service = bearings || tmcSvs || tmcGoods;
-
-      // e.preventDefault();
-      // if (!search) return;
-      // if (selectedServive === "tmc_svc") {
-      //   Service = tmcSvs;
-      // } else if (selectedServive === "tmc_gds") {
-      //   Service = tmcGoods;
-      // } else {
-      //   Service = bearings;
-      // }
+      setLoading(true);
       const bearingResult = bearingLists.filter(
         (item) =>
           item?.item === Number(search) ||
@@ -69,36 +59,7 @@ function App() {
       setBearings(bearingResult);
       setServices(tmcSvcResult);
       setGoods(tmcGdsResult);
-      // const result = Service.filter((item) => {
-      //   if (
-      //     item?.item === Number(search) ||
-      //     item?.long_desc?.toUpperCase()?.search(search.toUpperCase()) !== -1 ||
-      //     item?.desc
-      //       .toUpperCase()
-      //       .replace("-", " ")
-      //       ?.search(search.toUpperCase()) !== -1 ||
-      //     item?.material === Number(search)
-      //   ) {
-      //     return item;
-      //   }
-      // });
-      // const result2 = Service.filter((item) => {
-      //   if (
-      //     item?.item === Number(search) ||
-      //     item?.desc
-      //       .toUpperCase()
-      //       .replace("-", " ")
-      //       ?.search(search.toUpperCase()) !== -1
-      //   ) {
-      //     return item;
-      //   }
-      // });
-      // setResultItem(result2 ? result2 : result);
-      // const test2 = "Provision";
-      // const testt =
-      //   "A.1.1 Provision of one (1) full time resident mechanical maintenance supervisor during normal working hours, as specified. ";
-      // // console.log(testt.split(" ").filter(Number));
-      // console.log(testt.toUpperCase().search(test2.toUpperCase()));
+      setLoading(false);
     }
     return handleSearch();
   }, [bearings, search]);
@@ -147,7 +108,7 @@ function App() {
   // }
   return (
     <div className="app">
-      <nav>
+      <nav style={{ height: loading ? "100vh" : "" }}>
         <form>
           <div className="searchEngine">
             <label htmlFor="search" style={{ display: "none" }}>

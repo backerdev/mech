@@ -6,9 +6,11 @@
   align-items: center;
 }
 nav {
-  position: absolute;
+  position: sticky;
   left: 0;
-  height: 150px;
+  top: 0;
+  /* height: 100vh; */
+  padding: 20px 40px;
   width: 100%;
   z-index: 99;
 
@@ -19,6 +21,7 @@ nav {
   /* padding: 8px 16px; */
   background-color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all ease-in-out 1s;
 }
 section {
   margin-top: 190px;
@@ -40,7 +43,7 @@ form {
   align-items: center;
 }
 .searchEngine {
-  min-width: 250px;
+  min-width: 275px;
   max-width: 500px;
 
   display: flex;
