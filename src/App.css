@@ -42,6 +42,10 @@ form {
   /* justify-content: center; */
   align-items: center;
 }
+.full {
+  height: 100vh;
+  transition: all ease-in-out 1s;
+}
 .searchEngine {
   min-width: 275px;
   max-width: 500px;
